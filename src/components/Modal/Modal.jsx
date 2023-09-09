@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react';
-import style from './Modal.module.css'
+import style from './Modal.module.css';
+import PropTypes from 'prop-types';
 
 export default function Modal({ largeImageURL, tags, modalClose }) {
     const handleBackdropClose = event => {
@@ -28,3 +29,14 @@ export default function Modal({ largeImageURL, tags, modalClose }) {
       </div>
     );
   }
+
+Modal.defaultProps = {
+  largeImageURL: 'https://picsum.photos/100%/260',
+  tags: 'This is a default image. I am sorry, the image you searched is not available.',
+};
+
+Modal.propTypes = {
+  largeImageURL: PropTypes.string,
+  tags: PropTypes.string,
+  modalClose: PropTypes.func.isRequired,
+};

@@ -84,7 +84,7 @@ export const App = () => {
           return;
         }
 
-        if (imageCount < 12 && page === 1) {
+        if (imageCount < 15 && page === 1) {
           setLoading(false);
           setLoadMore(false);
 
@@ -100,7 +100,7 @@ export const App = () => {
           return;
         }
 
-        if (imageTotal > 12) {
+        if (imageTotal > 15) {
           setLoading(true);
           setLoadMore(true);
 

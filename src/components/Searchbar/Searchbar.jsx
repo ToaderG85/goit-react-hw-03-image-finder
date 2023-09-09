@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import style from './Searchbar.module.css';
 import Notiflix from 'notiflix';
+import PropTypes from 'prop-types';
 
 export default function Searchbar({onSubmit}) {
 
@@ -40,3 +41,7 @@ export default function Searchbar({onSubmit}) {
     </header>
   )
 }
+
+Searchbar.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};
