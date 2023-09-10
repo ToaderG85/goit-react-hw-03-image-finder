@@ -22,7 +22,7 @@ export const App = () => {
   const [openModal, setOpenModal] = useState(false);
   const [largeImageURL, setLargeImageURL] = useState('');
   const [loadMore, setLoadMore] = useState(false);
-  const [error,setError] = useState(null);
+  
 
   const bottomRef = useRef(null);
   useEffect(() => {
@@ -109,7 +109,7 @@ export const App = () => {
           return;
         }
       } catch (error) { 
-        setError("A aparut o eroare la cererea catre server!");
+        console.error(error);
         setLoading(false);
       } finally {
         setLoading(false);
