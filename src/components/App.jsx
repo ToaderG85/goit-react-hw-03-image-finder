@@ -22,6 +22,7 @@ export const App = () => {
   const [openModal, setOpenModal] = useState(false);
   const [largeImageURL, setLargeImageURL] = useState('');
   const [loadMore, setLoadMore] = useState(false);
+  const [error,setError] = useState(null);
 
   const bottomRef = useRef(null);
   useEffect(() => {
@@ -84,7 +85,7 @@ export const App = () => {
           return;
         }
 
-        if (imageCount < 15 && page === 1) {
+        if (imageCount < 12 && page === 1) {
           setLoading(false);
           setLoadMore(false);
 
@@ -100,13 +101,16 @@ export const App = () => {
           return;
         }
 
-        if (imageTotal > 15) {
+        if (imageTotal > 12) {
           setLoading(true);
           setLoadMore(true);
 
           Notiflix.Notify.success(`We found ${imageTotal} images.`);
           return;
         }
+      } catch (error) { 
+        setError("A aparut o eroare la cererea catre server!");
+        setLoading(false);
       } finally {
         setLoading(false);
       }
